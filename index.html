@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prevent default event</title>
+
+    <style>
+
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+       
+        form{
+            margin: 150px;
+            padding: 50px;
+            background-color: pink;
+            width: 400px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 1px 0px; 
+            gap: 20px;
+        }
+        input{
+        background-color: white;
+         border: none;
+         border-radius: 10px;
+         box-shadow: 1px 1px 2px 1px;
+         padding: 10px;
+
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        button{
+         height: 50px;
+         width: 100px;
+         padding: 5px;
+         background-color: white;
+         border: none;
+         border-radius: 10px;
+         box-shadow: 1px 1px 2px 1px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <form action="">
+            <h4>Please fill the form to go to login page</h4>    
+            <input id="input1" type="text" placeholder="USER NAME">
+
+            <div>
+                <input type="checkbox" id="check" ></input>
+                <label for="check">I accept the terms and conditons</label>
+            </div>
+            
+            <button id="btn"> <a class="confirm" href="https://dckappalli.zircly.com/"> SUBMIT</a></button>
+           
+          </form> 
+    </div>
+  
+   <script>
+
+            let check=document.querySelector("#check")
+            let inp=document.querySelector("#input1")
+            let button=document.getElementById("btn")
+
+           
+
+            button.addEventListener("click",(event)=>
+            {
+                console.log(event);
+
+                if (inp.value.length<=0) 
+                {
+                    alert("Please Fill Username");
+                    event.preventDefault()
+                }
+
+                else if(check.checked==false)
+                {
+                    alert("Please accept terms and condition");
+                    event.preventDefault()
+                }
+               
+                    
+            });
+</script>
+</body>
+</html>
